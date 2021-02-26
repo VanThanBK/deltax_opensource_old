@@ -1,0 +1,123 @@
+#pragma once
+
+//#define CNC_SHIELD
+#define BOARD_RAMPS_14
+
+//Delta Model Use
+//#define DELTA_X_PULY_L
+#define DELTA_X_PULY_S
+//#define DELTA_X_PLANNET
+
+#define SERIAL_PORT Serial
+#define BAUDRATE 115200
+
+//#define DELTA_AXIS_5
+#ifdef DELTA_AXIS_5
+ 
+ #define NUMBER_DEGREES_OF_FREEDOM 5
+
+ #define DELTA_AXIS_4
+
+#define USING_SERVO_FOR_AXIS5
+#ifdef USING_SERVO_FOR_AXIS5
+ #define AXIS_5_HOME_POSITION 0
+ #define AXIS_5_MAX_POSITION	170
+ #define AXIS_5_DEG_PER_SECONDS	400		//for RC Servo 9G
+ //#define AXIS_5_DEG_PER_SECONDS	300 //for RC Servo MG996
+#endif // DEBUSING_SERVO_FOR_AXIS5
+
+//#define USING_STEPER_FOR_AXIS5
+#ifdef USING_STEPER_FOR_AXIS5
+ #define AXIS_5_STEPS_PER_2PI  3200
+ #define AXIS_5_HOME_POSITION 0
+ #define AXIS_5_MAX_POSITION	300
+#endif // USING_STEPER_FOR_AXIS5
+
+#endif // DELTA_AXIS_5
+
+
+#define DELTA_AXIS_4
+#ifdef DELTA_AXIS_4
+
+#ifndef NUMBER_DEGREES_OF_FREEDOM
+ #define NUMBER_DEGREES_OF_FREEDOM 4
+#endif
+
+#define USING_SERVO_FOR_AXIS4
+#ifdef USING_SERVO_FOR_AXIS4
+ #define AXIS_4_HOME_POSITION 0
+ #define AXIS_4_MAX_POSITION	170
+ #define AXIS_4_DEG_PER_SECONDS	300		//for RC Servo 9G
+ //#define AXIS_4_DEG_PER_SECONDS	300 //for RC Servo MG996
+#endif // USING_SERVO_FOR_AXIS4
+
+//#define USING_STEPER_FOR_AXIS4
+#ifdef USING_STEPER_FOR_AXIS4
+ #define AXIS_4_STEPS_PER_2PI  3200
+ #define AXIS_4_HOME_POSITION 0
+ #define AXIS_4_MAX_POSITION	300
+#endif // USING_STEPER_FOR_AXIS4
+
+#endif // DELTA_AXIS_4
+
+#ifndef NUMBER_DEGREES_OF_FREEDOM
+ #define NUMBER_DEGREES_OF_FREEDOM 3
+#endif
+
+
+#define VACUUM
+#ifdef VACUUM
+ #define TIME_DELAY_TO_DROP	400 //ms
+#endif // VACUUM
+
+
+#define CLIP
+#ifdef CLIP
+ #define CLIP_OPEN_ANGLE_SERVO 110
+ #define CLIP_CLOSE_ANGLE_SERVO 55
+ #define CLIP_DEG_PER_SECONDS	400 //for RC Servo 9G
+ //#define CLIP_DEG_PER_SECONDS	300 //for RC Servo MG996
+#endif // CLIP
+
+
+//Adaptive Multi - Axis Step - Smoothing(AMASS)
+#define SMOOTHSTEP 0
+
+//Bresenham line drawing algorithm
+#define MM_PER_LINEAR_SEGMENT	5			//mm
+#define MM_PER_ARC_SEGMENT	8			//mm
+#define NUMBER_PER_BEZIER_SEGMENT 30	//segment
+
+#define DEFAULT_ACCELERATION 1600.0				//mm^2/s
+#define DEFAULT_VELOCITY 100.0					//mm/s
+
+#define DEFAULT_MAX_VELOCITY 850.0			//mm/s
+#define DEFAULT_MAX_ACCELERATION 30000.0			//mm/s
+
+#define INTERRUPT_CYCLE_MIN	170.0f  //165
+
+#define DEFAULT_BEGIN_VELOCITY 12			//mm/s 
+#define DEFAULT_END_VELOCITY 12		//mm/s
+
+#define DEFAULT_ENTRY_VELOCITY 12			//mm/s
+#define DEFAULT_EXIT_VELOCITY 12			//mm/s
+
+#define DEFAULT_MOVING_HOME_SPEED 50			//deg/s
+
+#define THETA1_MAX_POSITION	90					//deg
+#define THETA2_MAX_POSITION	90
+#define THETA3_MAX_POSITION	90
+
+#define PULSE_PER_2PI_ENCODER 200
+#define DIAMETER_OF_WHEEL_ATTACHED_TO_CONVEYOR 100	//mm
+
+//#define REVERSE_DIRECTION
+
+#define THETA1_ENDSTOP_INVERT false
+#define THETA2_ENDSTOP_INVERT false
+#define THETA3_ENDSTOP_INVERT false
+
+#ifdef ENDSTOP_FOR_CHECK_Z_AREA
+#define ENDSTOP_FOR_CHECK_Z_AREA_INVERT fasle
+#endif
+
